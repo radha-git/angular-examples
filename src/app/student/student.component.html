@@ -1,0 +1,38 @@
+<form #studentForm="ngForm" (ngSubmit)="Savestudent(studentForm)">
+    <div>
+        <label for="Studentfirstname">Student First Name</label>
+        <input type="text" name="studentfirstname" #StudentfnameControl="ngModel" ngModel required pattern="[A-Za-z]+" />
+        <span *ngIf="StudentfnameControl.invalid&&StudentfnameControl.touched&&StudentfnameControl.errors?.required">first name is required </span>
+        <span *ngIf="StudentfnameControl.invalid&&StudentfnameControl.touched&&StudentfnameControl.errors?.pattern">first name is invalid</span>
+    </div>
+    <div>
+        <label for="StudentLastname">Student Last Name</label>
+        <input type="text" name="studentLastname" #StudentLnameControl="ngModel" ngModel required pattern="[A-Za-z]+" />
+        <span *ngIf="StudentLnameControl.invalid&&StudentLnameControl.touched&&StudentLnameControl.errors?.required">Last name is required </span>
+        <span *ngIf="StudentLnameControl.invalid&&StudentLnameControl.touched&&StudentLnameControl.errors?.pattern">Last name is invalid</span>
+    </div>
+    <div>
+        <label for="studentid">Student Id</label>
+        <input type="text" name="studentid" #studentidControl="ngModel" ngModel required pattern="[0-9]{5}" />
+        <span *ngIf="studentidControl.invalid&&studentidControl.touched&&studentidControl.errors?.required">id is required </span>
+        <span *ngIf="studentidControl.invalid&&studentidControl.touched&&studentidControl.errors?.pattern">id is invalid</span>
+    </div>
+    <div>
+        <label for="department">Department</label>
+        <select name="department" #departmentControl="ngModel" ngModel required>
+          <option>Science</option>
+          <option>B.com</option>
+          <option>BA</option>
+      </select>
+    </div>
+
+    <div>
+        <label for="gender">Gender</label>
+        <input type="radio" name="gender">Male
+        <input type="radio" name="gender">Female
+    </div>
+    <div>
+        <button type="submit" [disabled]="studentForm.invalid">Save Student Data</button>
+    </div>
+
+</form>

@@ -1,0 +1,44 @@
+<form #employee1Form="ngForm" (ngSubmit)="saveEmployee1(employee1Form)">
+    <div>
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" #firstnameControl="ngModel" ngModel required pattern="[A-Za-z]+" />
+        <span *ngIf="firstnameControl.invalid&&firstnameControl.touched&&firstnameControl.errors?.required">First Name is required</span>
+        <span *ngIf="firstnameControl.invalid&&firstnameControl.touched&&firstnameControl.errors?.pattern">First name is invalid </span>
+    </div>
+    <div>
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" #lastnameControl="ngModel" ngModel required pattern="[A-Za-z]+" />
+        <span *ngIf="lastnameControl.invalid&&lastnameControl.touched&&lastnameControl.errors?.required">Last Name is required</span>
+        <span *ngIf="lastnameControl.invalid&&lastnameControl.touched&&lastnameControl.errors?.pattern">Last name is invalid</span>
+    </div>
+    <div>
+        <label for="department">Department</label>
+        <select name="department" #DepartmentControl="ngModel" ngModel required>
+     <option value="HR">HR</option>
+     <option value="IT">IT</option>
+     <option value="Marketing">Marketing</option>
+   </select>
+    </div>
+    <div>
+        <label for="mobilenumber">Mobile Number</label>
+        <input type="string" name="mobilenumber" #mobileControl="ngModel" ngModel required pattern="[0-9]{10}">
+        <span *ngIf="mobileControl.invalid&&mobileControl.touched&&mobileControl.errors?.required">Mobile Number is required</span>
+        <span *ngIf="mobileControl.invalid&&mobileControl.touched&&mobileControl.errors?.pattern">Mobile Number is invalid</span>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" #emailControl="ngModel" ngModel required>
+        <span *ngIf="emailControl.invalid&&emailControl.touched">Email is required</span>
+    </div>
+    <div>
+        <label for="gender">Gender</label>
+        <input type="radio" name="gender">Male
+        <input type="radio" name="gender">Female
+        <span>Gender is required</span>
+    </div>
+    <div>
+        <button type="submit" [disabled]="employee1Form.invalid">Save Employee1</button>
+
+    </div>
+
+</form>

@@ -1,0 +1,21 @@
+<form #signupForm="ngForm" (ngSubmit)="onsignupFormSubmit(signupForm)">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" #usernameControl="ngModel" ngModel required pattern="[A-Za-z]+" />
+        <span *ngIf="usernameControl.invalid&&usernameControl.touched&&usernameControl.errors?.required">user name is required</span>
+        <span *ngIf="usernameControl.invalid&&usernameControl.touched&&usernameControl.errors?.pattern">user name is invalid</span>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="text" name="password" #passwordControl="ngModel" ngModel required pattern=".{8,}" />
+        <span *ngIf="passwordControl.invalid&&passwordControl.touched&&passwordControl.errors?.required">password is required</span>
+        <span *ngIf="passwordControl.invalid&&passwordControl.touched&&passwordControl.errors?.pattern">password is invalid</span>
+    </div>
+    <div>
+        <label for="emil">Email</label>
+        <input type="text" name="emil" #emailControl="ngModel" ngModel required />
+    </div>
+    <div>
+        <button type="submit" [disabled]="signupForm.invalid">SignUp</button>
+    </div>
+</form>

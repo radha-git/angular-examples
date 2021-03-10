@@ -1,0 +1,24 @@
+<div style="border: 1px solid; position: relative;top: 200px;left:200px
+;max-width: 400px;padding: 10px 10px 10px 10px;">
+    <form #loginForm="ngForm" (ngSubmit)="onLoginFormSubmit(loginForm)">
+        <div style="position: relative;right: 10px;">
+            <label for="username" class="text-label">Username</label>
+            <input style="border-radius: 999px;" type="text" name="username" id="username" #usernameControl="ngModel" [(ngModel)]="username" required/>
+        </div>
+        <div *ngIf="usernameControl.invalid&&usernameControl.touched">
+            please enter username
+        </div>
+        <div style="position: relative;right: 10px;">
+            <label for="password"> 
+        Password
+    </label>
+            <input type="password" name="password" #passwordControl="ngModel" [(ngModel)]="password" required/>
+        </div>
+        <div *ngIf="passwordControl.invalid&&passwordControl.touched">
+            please enter password
+        </div>
+        <div>
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </div>
+    </form>
+</div>

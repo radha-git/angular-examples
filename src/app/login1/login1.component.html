@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <form #login1Form="ngForm" (ngSubmit)="OnLogin1FormSubmit(login1Form)">
+                <div></div>
+                <h3>Login Form</h3>
+                <div class="form-group">
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" #UserNameControl="ngModel" ngModel required pattern="[A-Za-z]+" />
+                    <span class="text-danger" *ngIf="UserNameControl.invalid&&UserNameControl.touched&&UserNameControl.errors?.required">Palase fill out this field</span>
+                    <span class="text-danger" *ngIf="UserNameControl.invalid&&UserNameControl.touched&&UserNameControl.errors?.pattern">Palase fill out valid username</span>
+                </div>
+                <div class="form-group">
+
+                    <label for="password"><b>Password</b></label>
+                    <input type="text" placeholder="Enter Password" name="password" #PasswordControl="ngModel" [(ngModel)]="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                    <span class="text-danger" *ngIf="PasswordControl.invalid&&PasswordControl.touched&&PasswordControl.errors?.required">Palase fill out this field</span>
+                    <span class="text-danger" *ngIf="PasswordControl.invalid&&PasswordControl.touched&&PasswordControl.errors?.pattern">Palase fill out valid username</span>
+                </div>
+
+                <div class="from-group">
+                    <button type="submit" class="btn btn-primary" [disabled]="login1Form.invalid">Login</button>
+                </div>
+                <div class="from-group">
+                    <label>
+                   <input type="checkbox" checked="checked" name="remember"> Remember me
+                  </label>
+                </div>
+                <div class="form-group" class="container" style="background-color:#f1f1f1">
+                    <button type="button" class="from-group" class="cancelbtn">Cancle</button>
+                    <span class="password">Forgot<a href="#">Password?</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
