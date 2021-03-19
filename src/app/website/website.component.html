@@ -1,8 +1,47 @@
-<body>
-    <div>
-        <H1>I am a angular developer.</H1>
-    </div>
-    <div>
-        <p>i dont know when we created Tata Airleance that i was making history for india.</p>
-    </div>
-</body>
+<div class="col-4"></div>
+<div class="col-4" style="background-image: url('assets/bg-image.jpg');">
+    <form #customerForm="ngForm" (ngSubmit)="savecustomer(customerForm)">
+        <div>
+            <h2 style="border:2px solid blue">Personal Information</h2>
+            <div>
+                <label for="firstname">Fisrt Name</label>
+                <input name="firstname" id="firstname" type="text" placeholder="firstname" class="form-control" #firstnamecontrol="ngModel" ngModel required pattern="[A-Za-z]+">
+                <span class="text-danger" *ngIf="firstnamecontrol.invalid&&firstnamecontrol.touched&&firstnamecontrol.errors?.required">First Name is required!!</span>
+                <span class="text-danger" *ngIf="firstnamecontrol.invalid&&firstnamecontrol.touched&&firstnamecontrol.errors?.pattern">First Name is invalid</span>
+            </div>
+            <div>
+                <label for="middlename">Middle name</label>
+                <input name="middlename" id="middlename" type="text" color="" placeholder="middlename" class="form-control" #middlenamecontrol="ngModel" ngModel required pattern="[A-Za-z]+">
+                <span class="text-danger" *ngIf="middlenamecontrol.invalid&&middlenamecontrol.touched&&middlenamecontrol.errors?.required">Middle Name is required</span>
+                <span class="text-danger" *ngIf="middlenamecontrol.invalid&&middlenamecontrol.touched&&middlenamecontrol.errors?.pattern">Middle Name is required</span>
+            </div>
+            <div>
+                <label for="lastname">Last Name</label>
+                <input name="lastname" id="lastname" type="text" placeholder="lastname" class="form-control" #lastnamecontrol="ngModel" ngModel required pattern="[A-Za-z]+">
+                <span class="text-danger" *ngIf="lastnamecontrol.invalid&&lastnamecontrol.touched&&lastnamecontrol.errors?.required">last name is required</span>
+                <span class="text-danger" *ngIf="lastnamecontrol.invalid&&lastnamecontrol.touched&&lastnamecontrol.errors?.pattern">last name is invalid</span>
+            </div>
+            <div>
+                <label for="mobilenumber">Mobile Number</label>
+                <input name="mobilenumber" id="mobilenumber" type="number" class="form-control" placeholder="Mobile Number" #mobilenumbercontrol="ngModel" ngModel required pattern="">
+                <span class="text-danger" *ngIf="mobilenumbercontrol.invalid&&mobilenumbercontrol.touched&&mobilenumbercontrol.errors?.required">Mobile Number is required</span>
+                <span class="text-danger" *ngIf="mobilenumbercontrol.invalid&&mobilenumbercontrol.touched&&mobilenumbercontrol.errors?.required">Mobile number is invalid</span>
+            </div>
+        </div>
+
+        <div>
+            <h2 style="border:2px solid blue; margin-top: 100px;">Contact Information</h2>
+            <div>
+                <label for="address">Address</label>
+                <input name="address" id="address" class="form-control" type="text" #addresscontrol="ngModel" ngModel required>
+                <span class="text-danger" *ngIf="addresscontrol.invalid&&addresscontrol.touched">Address is required</span>
+            </div>
+            <div>
+                <label for="city">City</label>
+                <input name="city" id="city" class="form-control" type="text" #citycontrol="ngModel" ngModel required>
+                <span class="text-danger" *ngIf="citycontrol.invalid&&citycontrol.touched">city is required</span>
+            </div>
+        </div>
+
+    </form>
+</div>

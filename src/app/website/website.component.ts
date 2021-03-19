@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./website.component.css']
 })
 export class WebsiteComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {
   }
-
+ savecustomer(form:any)
+ {
+   console.log(form);
+ }
 }
